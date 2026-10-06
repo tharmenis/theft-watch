@@ -1,0 +1,16 @@
+# Video and data handling
+av
+opencv-python-headless
+numpy
+pandas
+scikit-learn
+# Models
+transformers        # pretrained video backbones (e.g. VideoMAE)
+timm
+ultralytics         # YOLO detector + tracker. AGPL-3.0: fine for learning, needs a paid licence for a closed product
+# Export
+onnx
+onnxruntime
+# Experiment tracking and notebooks
+mlflow
+jupyterlab

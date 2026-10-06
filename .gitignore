@@ -1,0 +1,12 @@
+# Data and model artefacts stay out of git
+data/*
+!data/README.md
+models/**/*.onnx
+models/**/*.engine
+models/**/*.pt
+mlruns/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.env
+edge/logs/

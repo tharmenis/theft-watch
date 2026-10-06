@@ -1,0 +1,38 @@
+# Theft Watch local dev stack (Phase 1).
+# Start:   docker compose up -d edge trainer
+# Shell:   docker compose exec edge bash   |   docker compose exec trainer bash
+services:
+  edge:
+    # The "emulated Jetson": DeepStream 9.1 (CUDA, TensorRT, GStreamer). Same release exists for Jetson Orin/Thor.
+    image: nvcr.io/nvidia/deepstream:9.1-triton-multiarch
+    container_name: tw-edge
+    network_mode: host
+    working_dir: /workspace
+    volumes:
+      - ./:/workspace
+    command: sleep infinity
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu, video, compute, utility]
+
+  trainer:
+    build: ./training
+    image: theftwatch/trainer:dev
+    container_name: tw-trainer
+    network_mode: host
+    working_dir: /workspace
+    shm_size: 4gb
+    volumes:
+      - ./:/workspace
+    command: sleep infinity
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu, compute, utility]
