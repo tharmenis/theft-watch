@@ -1,4 +1,4 @@
-"""Phase 1 check: can PyTorch in the training container use the T1000?"""
+"""Phase 1 check: can PyTorch in the training container use this machine's NVIDIA GPU?"""
 import time
 import torch
 
@@ -8,7 +8,8 @@ props = torch.cuda.get_device_properties(0)
 print(f"GPU: {props.name} | memory: {props.total_memory / 1024**3:.1f} GB | compute capability: {props.major}.{props.minor}")
 archs = torch.cuda.get_arch_list()
 print("Kernels built for:", archs)
-assert "sm_75" in archs, "This PyTorch build has no Turing (sm_75) kernels"
+need = f"sm_{props.major}{props.minor}"
+assert need in archs, f"This PyTorch build has no kernels for this GPU ({need}); rebuild with another TORCH_INDEX"
 
 # Small half-precision matmul benchmark (what training with mixed precision uses)
 for dtype in (torch.float32, torch.float16):

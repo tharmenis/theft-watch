@@ -1,0 +1,76 @@
+{
+  "train": {
+    "windows": 737,
+    "theft_windows": 171,
+    "threshold": 0.4067,
+    "pr_auc": 0.995,
+    "roc_auc": 0.999,
+    "confusion": {
+      "tp": 171,
+      "fn": 0,
+      "fp": 28,
+      "tn": 538
+    },
+    "window_recall": 1.0,
+    "window_precision": 0.859,
+    "events": 61,
+    "events_caught": 61,
+    "event_recall": 1.0,
+    "false_alerts": 22,
+    "normal_minutes": 13.6,
+    "false_alerts_per_hour": 97.4,
+    "by_scene": {
+      "normal": {
+        "normal_windows": 496,
+        "windows_fired": 14,
+        "share_fired": 0.028,
+        "false_alerts": 9,
+        "minutes": 11.0
+      },
+      "shoplifting": {
+        "normal_windows": 70,
+        "windows_fired": 14,
+        "share_fired": 0.2,
+        "false_alerts": 13,
+        "minutes": 2.6
+      }
+    }
+  },
+  "val": {
+    "windows": 160,
+    "theft_windows": 37,
+    "threshold": 0.4067,
+    "pr_auc": 0.74,
+    "roc_auc": 0.882,
+    "confusion": {
+      "tp": 30,
+      "fn": 7,
+      "fp": 23,
+      "tn": 100
+    },
+    "window_recall": 0.811,
+    "window_precision": 0.566,
+    "events": 14,
+    "events_caught": 12,
+    "event_recall": 0.857,
+    "false_alerts": 10,
+    "normal_minutes": 3.0,
+    "false_alerts_per_hour": 200.0,
+    "by_scene": {
+      "normal": {
+        "normal_windows": 102,
+        "windows_fired": 10,
+        "share_fired": 0.098,
+        "false_alerts": 4,
+        "minutes": 2.3
+      },
+      "shoplifting": {
+        "normal_windows": 21,
+        "windows_fired": 13,
+        "share_fired": 0.619,
+        "false_alerts": 6,
+        "minutes": 0.7
+      }
+    }
+  }
+}

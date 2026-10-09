@@ -1,0 +1,36 @@
+{
+  "name": "theft-watch-behaviour-20261009-110229-logreg",
+  "task": "concealment vs normal",
+  "classes": [
+    "normal",
+    "concealment"
+  ],
+  "threshold": 0.4067,
+  "threshold_rule": "validation window recall >= 0.8",
+  "model": "logreg",
+  "regularisation": 0.1,
+  "backbone": {
+    "backbone": "mvit_v2_s",
+    "weights": "MViT_V2_S_Weights.KINETICS400_V1",
+    "frames": 16,
+    "input_size": 224,
+    "resize": "full frame squashed to square",
+    "feature_dim": 768,
+    "windows": 1044,
+    "flipped_windows": 737,
+    "fp16": true,
+    "seconds": 884.0,
+    "peak_gpu_mb": 751,
+    "torch": "2.11.0+cu128",
+    "torchvision": "0.26.0+cu128",
+    "python": "3.12.15",
+    "windows_file": "data/labels/windows.csv",
+    "created": "2026-10-09 10:59:02"
+  },
+  "windows_file": "data/labels/windows.csv",
+  "allowed_use_of_training_data": {
+    "internal_pipeline_testing": 1044
+  },
+  "status": "INTERNAL TESTING ONLY - trained on public data; must not ship",
+  "created": "2026-10-09 11:02:29"
+}
